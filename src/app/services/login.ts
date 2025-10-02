@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-import { Injectable } from '@angular/core';
-=======
 import { Injectable, inject } from '@angular/core';
 import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, updateProfile, GoogleAuthProvider, signInWithPopup, User } from '@angular/fire/auth';
 import { Firestore, doc, docData, setDoc, serverTimestamp, getDoc } from '@angular/fire/firestore';
 import { from, map, switchMap } from 'rxjs';
->>>>>>> origin/master
 
 @Injectable({
   providedIn: 'root'
 })
 export class Login {
-<<<<<<< HEAD
-  
-}
-=======
   private auth = inject(Auth);
   private db = inject(Firestore);
 
@@ -69,4 +61,3 @@ export class Login {
     }
   }
 }
->>>>>>> origin/master

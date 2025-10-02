@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "android:live": "powershell -NoProfile -Command \"cd android; if (Test-Path .\\gradlew.bat) { .\\gradlew.bat uninstallDebug } else { ./gradlew uninstallDebug }; cd ..; ionic cap run android -l --external\"",
-    "android:build":"ionic build && npx cap copy && ionic cap run android -l --external"
+    "android:build": "ionic build && npx cap copy && ionic cap run android -l --external"
   },
   "private": true,
   "dependencies": {
