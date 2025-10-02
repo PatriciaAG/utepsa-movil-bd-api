@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "android:live": "powershell -NoProfile -Command \"cd android; if (Test-Path .\\gradlew.bat) { .\\gradlew.bat uninstallDebug } else { ./gradlew uninstallDebug }; cd ..; ionic cap run android -l --external\""
+    "android:live": "powershell -NoProfile -Command \"cd android; if (Test-Path .\\gradlew.bat) { .\\gradlew.bat uninstallDebug } else { ./gradlew uninstallDebug }; cd ..; ionic cap run android -l --external\"",
+    "android:build":"ionic build && npx cap copy && ionic cap run android -l --external"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@capacitor/android": "^7.4.3",
     "@capacitor/app": "7.1.0",
     "@capacitor/core": "7.4.3",
     "@capacitor/haptics": "7.0.2",
