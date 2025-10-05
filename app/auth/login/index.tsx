@@ -9,12 +9,12 @@ import {
 
 import { router } from 'expo-router';
 
+import { useAuthStore } from '@/presentation/auth/store/useAuthStrore';
 import ThemedButton from '@/presentation/theme/components/ThemedButton';
 import ThemedLink from '@/presentation/theme/components/ThemedLink';
 import { ThemedText } from '@/presentation/theme/components/ThemedText';
 import ThemedTextInput from '@/presentation/theme/components/ThemedTextInput';
 import { useThemeColor } from '@/presentation/theme/hooks/use-theme-color';
-import { useAuthStore } from '@/presentation/auth/store/useAuthStrore';
 
 const LoginScreen = () => {
   const { login } = useAuthStore();
@@ -89,8 +89,21 @@ const LoginScreen = () => {
           />
         </View>
 
+        {/* Enlace para olvidar contraseña */}
+        <View style={{ marginTop: 10, alignItems: 'flex-end' }}>
+          <ThemedText 
+            style={{ 
+              color: '#007AFF',
+              textDecorationLine: 'underline'
+            }}
+            onPress={() => router.push('/auth/password-reset')}
+          >
+            ¿Olvidaste tu contraseña?
+          </ThemedText>
+        </View>
+
         {/* Spacer */}
-        <View style={{ marginTop: 10 }} />
+        <View style={{ marginTop: 20 }} />
 
         {/* Botón */}
         <ThemedButton

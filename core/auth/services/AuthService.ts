@@ -76,6 +76,40 @@ export class AuthService {
   }
 
   /**
+   * Solicitar reset de contraseña
+   */
+  static async requestPasswordReset(email: string): Promise<{ message: string }> {
+    const url = buildApiUrl(API_CONFIG.ENDPOINTS.REQUEST_PASSWORD_RESET);
+    console.log('🌐 AuthService.requestPasswordReset - URL:', url);
+    console.log('📦 AuthService.requestPasswordReset - Email:', email);
+    
+    try {
+      console.log('🚀 Enviando petición de reset de contraseña...');
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ email }),
+      });
+
+      console.log('📡 Reset password - Status:', response.status, 'OK:', response.ok);
+
+      const data = await response.json();
+      console.log('📄 Reset password - Respuesta:', data);
+
+      if (!response.ok) {
+        console.log('❌ Reset password falló:', data);
+        throw new Error(data.message || 'Error al solicitar reset de contraseña');
+      }
+
+      console.log('✅ Reset password exitoso');
+      return data;
+    } catch (error) {
+      console.error('💥 Error en reset password:', error);
+      throw error instanceof Error ? error : new Error('Error desconocido en reset de contraseña');
+    }
+  }
+
+  /**
    * Validar token (para verificar si el usuario sigue autenticado)
    */
   static async validateToken(token: string): Promise<User> {

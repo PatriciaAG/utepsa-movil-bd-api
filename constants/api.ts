@@ -7,6 +7,7 @@ export const API_CONFIG = {
     // Auth endpoints
     LOGIN: '/auth/login',
     REGISTER: '/auth/register',
+    REQUEST_PASSWORD_RESET: '/auth/password-reset',
     
     // Future endpoints can be added here
     // EVENTS: '/events',
