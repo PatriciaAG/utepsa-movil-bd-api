@@ -1,13 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>registro</ion-title>
+    <ion-title>Registrar producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-input type="number" label="Precio" labelPlacement="floating" formControlName="precio"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      Guardar
+    </ion-button>
+  </form>
 </ion-content>

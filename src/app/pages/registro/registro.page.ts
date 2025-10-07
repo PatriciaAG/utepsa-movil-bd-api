@@ -1,20 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonItem, IonLabel, IonInput, IonNote } from '@ionic/angular/standalone';
+import { ServiceProducto } from 'src/app/services/service-producto';
+import { LoadingController, ToastController } from '@ionic/angular'
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonContent, IonButton,IonItem, IonLabel, IonInput, IonNote ,  CommonModule, FormsModule, ReactiveFormsModule]
 })
-export class RegistroPage implements OnInit {
+export class RegistroPage {
+  form = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(2)]],
+    precio: [null, [Validators.required, Validators.min(0)]],
+  });
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private productService: ServiceProducto,
+    private loading: LoadingController,
+    private toast: ToastController
+  ) {}
 
-  ngOnInit() {
+  async submit() {
+    if (this.form.invalid) return;
+    const loader = await this.loading.create({ message: 'Guardando...' });
+    await loader.present();
+
+    try {
+      const { nombre, precio } = this.form.value as any;
+      await this.productService.crearProducto(nombre, Number(precio));
+      this.form.reset();
+      this.notify('Producto registrado');
+    } catch (e) {
+      console.error(e);
+      this.notify('Error al guardar');
+    } finally {
+      loader.dismiss();
+    }
   }
 
+  private async notify(msg: string) {
+    const t = await this.toast.create({ message: msg, duration: 2000 });
+    t.present();
+  }
 }

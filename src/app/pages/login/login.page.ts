@@ -32,6 +32,7 @@ export class LoginPage {
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
+
   async onLogin() {
     if (this.form.invalid) return;
     this.loading.set(true);
@@ -48,22 +49,7 @@ export class LoginPage {
     }
   }
 
-  async onRegister() {
-    if (this.form.invalid) return;
-    this.loading.set(true);
-    this.error.set(null);
-    const { email, password } = this.form.value;
-
-    try {
-      await this.auth.registerEmail(email!, password!).toPromise();
-      await this.router.navigateByUrl('/', { replaceUrl: true });
-    } catch (e: any) {
-      this.error.set(this.humanizeError(e?.code || e?.message));
-    } finally {
-      this.loading.set(false);
-    }
-  }
-
+  
   private humanizeError(code: string): string {
     switch (code) {
       case 'auth/invalid-credential':
