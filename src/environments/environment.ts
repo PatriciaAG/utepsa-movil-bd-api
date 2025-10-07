@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyAJXhp__pFN_cdShDTt111pE89HDTdfUlY",
-    authDomain: "practica-a485b.firebaseapp.com",
-    projectId: "practica-a485b",
-    storageBucket: "practica-a485b.firebasestorage.app",
-    messagingSenderId: "545717347244",
-    appId: "1:545717347244:web:a5ad67446e5144f2c39009"
+    apiKey: "AIzaSyBnB85iMGWfozIK-0FGSwjCKRIZNLU_JAc",
+    authDomain: "appencuestabd.firebaseapp.com",
+    projectId: "appencuestabd",
+    storageBucket: "appencuestabd.firebasestorage.app",
+    messagingSenderId: "765801133121",
+    appId: "1:765801133121:web:7ff2d7ddee72e87b8e82c0"
   }
 };
