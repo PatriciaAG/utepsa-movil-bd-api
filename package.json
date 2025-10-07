@@ -9,7 +9,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "android:live": "powershell -NoProfile -Command \"cd android; if (Test-Path .\\gradlew.bat) { .\\gradlew.bat uninstallDebug } else { ./gradlew uninstallDebug }; cd ..; ionic cap run android -l --external\"",
+    "android:build":"ionic build && npx cap copy && ionic cap run android -l --external"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +19,7 @@
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",
     "@angular/core": "^20.0.0",
+    "@angular/fire": "^20.0.1",
     "@angular/fire": "^20.0.1",
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
@@ -29,6 +32,7 @@
     "@capacitor/keyboard": "7.0.3",
     "@capacitor/status-bar": "7.0.3",
     "@ionic/angular": "^8.0.0",
+    "firebase": "^11.10.0",
     "firebase": "^11.10.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
