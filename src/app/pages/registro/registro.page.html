@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>registro</ion-title>
+    <ion-title>Registro de Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
+      <ion-title size="large">Registro de Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="ion-padding">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label position="stacked">Nombre del Producto *</ion-label>
+        <ion-input 
+          type="text" 
+          formControlName="nombre"
+          placeholder="Ingrese el nombre del producto"
+          [class.ion-invalid]="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+        </ion-input>
+      </ion-item>
+      
+      <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="ion-text-center ion-text-danger ion-margin-start">
+        <small *ngIf="form.get('nombre')?.errors?.['required']">El nombre es requerido</small>
+        <small *ngIf="form.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 2 caracteres</small>
+      </div>
+
+      <ion-item>
+        <ion-label position="stacked">Precio *</ion-label>
+        <ion-input 
+          type="number" 
+          formControlName="precio"
+          placeholder="0.00"
+          step="0.01"
+          min="0.01"
+          [class.ion-invalid]="form.get('precio')?.invalid && form.get('precio')?.touched">
+        </ion-input>
+      </ion-item>
+      
+      <div *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched" class="ion-text-center ion-text-danger ion-margin-start">
+        <small *ngIf="form.get('precio')?.errors?.['required']">El precio es requerido</small>
+        <small *ngIf="form.get('precio')?.errors?.['min']">El precio debe ser mayor a 0</small>
+      </div>
+
+      <ion-button 
+        expand="block" 
+        type="submit" 
+        [disabled]="form.invalid"
+        class="ion-margin-top">
+        Guardar Producto
+      </ion-button>
+    </form>
+  </div>
 </ion-content>
