@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registrar producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="Nombre del producto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Precio" labelPlacement="floating" placeholder="Precio del producto"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="form.invalid">Guardar</ion-button>
+  </form>
+</ion-content>
