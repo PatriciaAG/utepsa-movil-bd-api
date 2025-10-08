@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyAJXhp__pFN_cdShDTt111pE89HDTdfUlY",
-    authDomain: "practica-a485b.firebaseapp.com",
-    projectId: "practica-a485b",
-    storageBucket: "practica-a485b.firebasestorage.app",
-    messagingSenderId: "545717347244",
-    appId: "1:545717347244:web:a5ad67446e5144f2c39009"
+    apiKey: "AIzaSyCDnA1MD7U_-BDhUkZOe3ywy4nVHzn_rII",
+  authDomain: "proyecto-despensa-smart.firebaseapp.com",
+  projectId: "proyecto-despensa-smart",
+  storageBucket: "proyecto-despensa-smart.firebasestorage.app",
+  messagingSenderId: "132160270331",
+  appId: "1:132160270331:web:64dcc40f1d3b352e85a55e"
   }
 };

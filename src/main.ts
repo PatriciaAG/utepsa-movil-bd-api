@@ -7,6 +7,7 @@ import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
+import { importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
