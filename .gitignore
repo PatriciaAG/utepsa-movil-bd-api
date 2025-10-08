@@ -41,3 +41,6 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Ignorar archivos de credenciales de Firebase Admin SDK (service accounts)
+aplicaciones-moviles-utepsa-firebase-adminsdk-*.json
