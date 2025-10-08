@@ -3,5 +3,5 @@ export interface Persona {
     nombre:string;
     correoelectronico:string;
     fechaNac:Date; 
-
+    creadoEn: any; 
 }

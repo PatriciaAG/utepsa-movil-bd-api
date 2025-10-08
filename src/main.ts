@@ -10,6 +10,8 @@ import { initializeApp } from 'firebase/app';
 import { environment } from './environments/environment';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
+//import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+//import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 import { provideStorage } from '@angular/fire/storage';

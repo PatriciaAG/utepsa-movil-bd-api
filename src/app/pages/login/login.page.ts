@@ -6,6 +6,7 @@ import {
 } from '@ionic/angular/standalone';
 import { Router, RouterLink } from '@angular/router';
 import { Login } from 'src/app/services/login';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ import { Login } from 'src/app/services/login';
     ReactiveFormsModule,
     RouterLink,
     IonHeader, IonToolbar, IonTitle, IonContent,
-    IonItem, IonLabel, IonInput, IonButton, IonText, IonSpinner
+    IonItem, IonLabel, IonInput, IonButton, IonText, IonSpinner, CommonModule
   ],
 })
 export class LoginPage {

@@ -10,7 +10,7 @@ import { LoadingController, ToastController } from '@ionic/angular'
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonContent, IonButton,IonItem, IonLabel, IonInput, IonNote ,  CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonContent, IonButton,IonItem, IonInput,  CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class RegistroPage {
   form = this.fb.group({
