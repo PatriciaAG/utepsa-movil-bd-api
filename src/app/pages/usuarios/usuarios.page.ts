@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Firebase } from 'src/app/services/firebase';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
@@ -10,7 +9,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
   templateUrl: './usuarios.page.html',
   styleUrls: ['./usuarios.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar,
+    CommonModule, FormsModule, IonicModule]
 })
 export class UsuariosPage implements OnInit {
 
