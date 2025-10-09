@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { Network} from '@capacitor/network';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +10,8 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon } from 
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, RouterLink, IonButton, IonIcon],
 })
 export class HomePage {
-  constructor() {}
+  status = Network.getStatus();
+  constructor() {
+    Network.addListener('networkStatusChange', s => alert(s.connected));
+  }
 }
