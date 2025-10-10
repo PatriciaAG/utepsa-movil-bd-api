@@ -7,8 +7,8 @@ import { Persona } from '../models/persona.model';
 })
 export class ServicePersona {
   //constructor(private db: Firestore) {}
-  private db = inject(Firestore); // ✅ mantiene el contexto de Angular
-  private zone = inject(NgZone); // ✅
+  private db = inject(Firestore); // Inyección de dependencia
+  private zone = inject(NgZone); // Inyección de NgZone
 
 
   async crearPersona(ci: string, nombre: string, correoelectronico: string, fechaNac: Date) {
